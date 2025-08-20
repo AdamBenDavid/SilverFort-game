@@ -47,41 +47,49 @@ const randomOf = <T extends readonly string[]>(arr: T): T[number] =>
   arr[Math.floor(Math.random() * arr.length)];
 
 export const generateInitialBoard = (): Board => {
-  const g: Board = Array.from(
+  const grid: Board = Array.from(
     { length: ROWS },
     () => Array(COLS).fill(null) as any,
   );
-  for (let r = 0; r < ROWS; r++) {
-    for (let c = 0; c < COLS; c++) {
+  for (let row = 0; row < ROWS; row++) {
+    for (let column = 0; column < COLS; column++) {
       let tries = MAX_TRIES;
       let chosen: { shape: Shape; color: Color } | null = null;
       while (tries--) {
-        const s = randomOf(SHAPES) as Shape;
-        const col = randomOf(COLORS) as Color;
-        if (isValid(r, c, s, col, g)) {
-          chosen = { shape: s, color: col };
+        const shape = randomOf(SHAPES) as Shape;
+        const color = randomOf(COLORS) as Color;
+        if (isValid(row, column, shape, color, grid)) {
+          chosen = { shape: shape, color: color };
           break;
         }
       }
       if (!chosen) return generateInitialBoard();
-      g[r][c] = { shape: chosen.shape, color: chosen.color, cooldown: 0 };
+      grid[row][column] = {
+        shape: chosen.shape,
+        color: chosen.color,
+        cooldown: 0,
+      };
     }
   }
-  return g;
+  return grid;
 };
 
 export const applyValidRandomChange = (
   grid: Board,
-  r: number,
-  c: number,
+  row: number,
+  column: number,
 ): Board | null => {
   let tries = MAX_TRIES;
   while (tries--) {
-    const s = randomOf(SHAPES) as Shape;
-    const col = randomOf(COLORS) as Color;
-    if (isValid(r, c, s, col, grid)) {
+    const shape = randomOf(SHAPES) as Shape;
+    const color = randomOf(COLORS) as Color;
+    if (isValid(row, column, shape, color, grid)) {
       const next = grid.map((row) => row.map((cell) => ({ ...cell })));
-      next[r][c] = { shape: s, color: col, cooldown: INITIAL_COOLDOWN };
+      next[row][column] = {
+        shape: shape,
+        color: color,
+        cooldown: INITIAL_COOLDOWN,
+      };
       return next;
     }
   }
@@ -90,39 +98,44 @@ export const applyValidRandomChange = (
 
 export const decrementCooldowns = (grid: Board): Board => {
   const next = grid.map((row) => row.map((cell) => ({ ...cell })));
-  for (let r = 0; r < ROWS; r++) {
-    for (let c = 0; c < COLS; c++) {
-      const cell = next[r][c];
+  for (let row = 0; row < ROWS; row++) {
+    for (let column = 0; column < COLS; column++) {
+      const cell = next[row][column];
       if (cell.cooldown > 0) cell.cooldown--;
     }
   }
   return next;
 };
 
-export const optionsForCell = (grid: Board, r: number, c: number) => {
-  const neigh = neighbors(r, c).map(([rr, cc]) => grid[rr][cc]!);
-  const usedShapes = new Set(neigh.map((n) => n.shape));
-  const usedColors = new Set(neigh.map((n) => n.color));
+export const optionsForCell = (grid: Board, row: number, column: number) => {
+  const neighbor = neighbors(row, column).map(
+    ([neighborRow, neighborColumn]) => grid[neighborRow][neighborColumn]!,
+  );
+  const usedShapes = new Set(neighbor.map((neighbor) => neighbor.shape));
+  const usedColors = new Set(neighbor.map((neighbor) => neighbor.color));
 
-  const shapes = SHAPES.filter((s) => !usedShapes.has(s));
-  const colors = COLORS.filter((col) => !usedColors.has(col));
+  const shapes = SHAPES.filter((shape) => !usedShapes.has(shape));
+  const colors = COLORS.filter((color) => !usedColors.has(color));
   return { shapes, colors };
 };
 
 export const applyFromOptions = (
   grid: Board,
-  r: number,
-  c: number,
+  row: number,
+  column: number,
 ): Board | null => {
-  const { shapes, colors } = optionsForCell(grid, r, c);
+  const { shapes, colors } = optionsForCell(grid, row, column);
   if (shapes.length === 0 || colors.length === 0) return null;
 
-  // decrement first so clicked cell shows 3
   const next = decrementCooldowns(grid);
 
-  const s = shapes[Math.floor(Math.random() * shapes.length)] as Shape;
-  const col = colors[Math.floor(Math.random() * colors.length)] as Color;
+  const shape = shapes[Math.floor(Math.random() * shapes.length)] as Shape;
+  const color = colors[Math.floor(Math.random() * colors.length)] as Color;
 
-  next[r][c] = { shape: s, color: col, cooldown: INITIAL_COOLDOWN };
+  next[row][column] = {
+    shape: shape,
+    color: color,
+    cooldown: INITIAL_COOLDOWN,
+  };
   return next;
 };
