@@ -5,39 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ebb139c-e905-4d74-9eda-1ada6431f2e3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/api/http.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/api/socket.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Banner/Banner.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Banner/Banner.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Banner/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Cell/Cell.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Cell/Cell.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Cell/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Grid/Grid.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Grid/Grid.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Grid/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Leaderboard/Leaderboard.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Leaderboard/Leaderboard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Leaderboard/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/NamePrompt/NamePromp.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/NamePrompt/NamePrompt.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/NamePrompt/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/TopBar/TopBar.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/TopBar/TopBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/TopBar/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/env/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/global.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/hooks/useGameSocket.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/hooks/useLeaderboard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/Game/GamePage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/Game/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/styles.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/vite-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/game/board.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/game/board.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/game/game.gateway.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/game/game.gateway.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +29,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "AdamBenDavid"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/AdamBenDavid/SilverFort-game.git",
+    "accountId": "25c4d863-e3ef-40df-ad6c-644fd50ab631"
+  }
+}]]></component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
@@ -80,7 +62,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "C:/Users/adamb/WebstormProjects/silverFort-game/client/src/components/NamePrompt",
     "node.js.detected.package.eslint": "true",
@@ -89,7 +71,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\adamb\\WebstormProjects\\silverFort-game\\server\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "ts.external.directory.path": "C:\\Users\\adamb\\WebstormProjects\\silverFort-game\\server\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -124,7 +106,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755681583884</updated>
-      <workItem from="1755681585022" duration="8587000" />
+      <workItem from="1755681585022" duration="9130000" />
     </task>
     <servers />
   </component>

@@ -29,7 +29,6 @@ export class GameGateway implements OnGatewayConnection {
   }
 
   @SubscribeMessage('clickCell')
-  @SubscribeMessage('clickCell')
   handleClick(@MessageBody() { row, col }: { row: number; col: number }) {
     this.logger.debug(`Click received on cell [${row}, ${col}]`);
     const { board, score } = this.state.getState();

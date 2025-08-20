@@ -1,37 +1,44 @@
 import { Board, Shape, Color, SHAPES, COLORS } from './types';
 import { ROWS, COLS, INITIAL_COOLDOWN, MAX_TRIES } from './constants';
 
-export const neighbors = (r: number, c: number): [number, number][] =>
+export const neighbors = (row: number, column: number): [number, number][] =>
   [
-    [r - 1, c],
-    [r + 1, c],
-    [r, c - 1],
-    [r, c + 1],
-  ].filter(([rr, cc]) => rr >= 0 && rr < ROWS && cc >= 0 && cc < COLS) as [
-    number,
-    number,
-  ][];
+    [row - 1, column],
+    [row + 1, column],
+    [row, column - 1],
+    [row, column + 1],
+  ].filter(
+    ([filteredRow, filteredColumn]) =>
+      filteredRow >= 0 &&
+      filteredRow < ROWS &&
+      filteredColumn >= 0 &&
+      filteredColumn < COLS,
+  ) as [number, number][];
 
 export const isValid = (
-  r: number,
-  c: number,
+  row: number,
+  column: number,
   shape: Shape,
   color: Color,
   grid: Board,
 ): boolean => {
-  for (const [rr, cc] of neighbors(r, c)) {
-    const n = grid[rr]?.[cc];
-    if (!n) continue;
-    if (n.shape === shape) return false;
-    if (n.color === color) return false;
+  for (const [neighborRow, neighborColumn] of neighbors(row, column)) {
+    const cell = grid[neighborRow]?.[neighborColumn];
+    if (!cell) continue;
+    if (cell.shape === shape) return false;
+    if (cell.color === color) return false;
   }
   return true;
 };
 
-export const anyValidForCell = (r: number, c: number, grid: Board): boolean => {
-  for (const s of SHAPES)
+export const anyValidForCell = (
+  row: number,
+  column: number,
+  grid: Board,
+): boolean => {
+  for (const shapes of SHAPES)
     for (const col of COLORS) {
-      if (isValid(r, c, s, col, grid)) return true;
+      if (isValid(row, column, shapes, col, grid)) return true;
     }
   return false;
 };
