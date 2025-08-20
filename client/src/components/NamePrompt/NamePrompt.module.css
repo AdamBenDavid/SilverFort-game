@@ -1,0 +1,64 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.meta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    display: inline-block;
+    border: 1px solid #777;
+}
+
+.on {
+    background: #19c37d;
+    border-color: #19c37d;
+}
+
+.off {
+    background: #ccc;
+}
+
+.score {
+    font-weight: 700;
+}
+
+.btn {
+    padding: 6px 10px;
+    border: 1px solid #111;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #f2f2f2;
+}
+
+.btn {
+    padding: 6px 10px;
+    border: 1px solid #111;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #f2f2f2;
+}
+
+.group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
