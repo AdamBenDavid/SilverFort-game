@@ -6,6 +6,8 @@ import { generateInitialBoard } from './board';
 export class StateService {
   private score = 0;
   private board: Board = [];
+  private gameId = Date.now();
+  private submitted = false;
 
   constructor() {
     this.reset();
@@ -13,6 +15,18 @@ export class StateService {
 
   getState() {
     return { score: this.score, board: this.board };
+  }
+
+  getMeta() {
+    return { gameId: this.gameId, submitted: this.submitted };
+  }
+
+  isSubmitted() {
+    return this.submitted;
+  }
+
+  markSubmitted() {
+    this.submitted = true;
   }
 
   setBoard(b: Board) {
@@ -26,5 +40,7 @@ export class StateService {
   reset() {
     this.score = 0;
     this.board = generateInitialBoard();
+    this.gameId = Date.now();
+    this.submitted = false;
   }
 }
