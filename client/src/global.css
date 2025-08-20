@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: #fafafa
+}
+
+.app {
+    max-width: 880px;
+    margin: 24px auto;
+    padding: 0 16px
+}

@@ -1,0 +1,8 @@
+.banner {
+    background: #111;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 12px;
+}

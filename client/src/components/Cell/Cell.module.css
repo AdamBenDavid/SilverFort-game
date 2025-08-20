@@ -1,0 +1,51 @@
+.cell {
+    width: 96px;
+    height: 96px;
+    border: 2px solid #111;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    cursor: pointer;
+    background: #fff;
+    transition: transform .07s;
+}
+
+.cell:hover {
+    transform: translateY(-2px);
+}
+
+.cell:disabled {
+    cursor: not-allowed;
+}
+
+.cooldown {
+    opacity: .55;
+}
+
+.badge {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #111;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+
+.red {
+    background-color: #ff6767;
+}
+
+.green {
+    background-color: #78e08f;
+}
+
+.blue {
+    background-color: #60a3ff;
+}
+
+.yellow {
+    background-color: #ffd86b;
+}

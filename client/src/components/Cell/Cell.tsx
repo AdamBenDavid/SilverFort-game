@@ -1,7 +1,11 @@
 import {memo} from 'react';
-import type {Cell as TCell} from '../types';
+import type {Cell as TCell} from '../../types';
+import styles from './Cell.module.css';
 
-type Props = { cell: TCell; onClick: () => void };
+interface Props {
+    cell: TCell;
+    onClick: () => void
+}
 
 const ShapeSvg = ({shape}: { shape: TCell['shape'] }) => {
     const stroke = '#111', fill = 'rgba(255,255,255,.9)';
@@ -21,15 +25,22 @@ const ShapeSvg = ({shape}: { shape: TCell['shape'] }) => {
 
 const Cell = ({cell, onClick}: Props) => {
     const blocked = cell.cooldown > 0;
+    const colorClass = ({
+        red: styles.red,
+        green: styles.green,
+        blue: styles.blue,
+        yellow: styles.yellow,
+    } as const)[cell.color];
+
     return (
         <button
-            className={`cell ${cell.color} ${blocked ? 'cooldown' : ''}`}
+            className={`${styles.cell} ${colorClass} ${blocked ? styles.cooldown : ''}`}
             onClick={onClick}
             disabled={blocked}
             title={blocked ? `Cooldown: ${cell.cooldown}` : 'Click'}
         >
             <ShapeSvg shape={cell.shape}/>
-            {blocked && <span className="badge">{cell.cooldown}</span>}
+            {blocked && <span className={styles.badge}>{cell.cooldown}</span>}
         </button>
     );
 };

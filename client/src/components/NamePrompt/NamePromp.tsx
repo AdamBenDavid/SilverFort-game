@@ -1,25 +1,40 @@
-import styles from './TopBar.module.css';
+import {useState} from 'react';
+import styles from './NamePrompt.module.css';
 
-interface Props {
-    connected: boolean;
+type Props = {
+    open: boolean;
     score: number;
-    onReset: () => void;
-    onShowLeaderboard: () => void;
-}
+    onSubmit: (name: string) => void;
+    onCancel: () => void;
+};
 
-const TopBar = ({connected, score, onReset, onShowLeaderboard}: Props) => (
-    <header className={styles.topbar}>
-        <h1>Shape–Color Board</h1>
-        <div className={styles.meta}>
-            <span className={`${styles.dot} ${connected ? styles.on : styles.off}`}
-                  title={connected ? 'connected' : 'disconnected'}/>
-            <span className={styles.score}>Score: {score}</span>
-            <div className={styles.group}>
-                <button className={styles.btn} onClick={onShowLeaderboard}>Leaderboard</button>
-                <button className={styles.btn} onClick={onReset}>Reset</button>
+const NamePrompt = ({open, score, onSubmit, onCancel}: Props) => {
+    const [name, setName] = useState('');
+    if (!open) return null;
+
+    const submit = () => onSubmit(name.trim());
+
+    return (
+        <div className={styles.backdrop} onClick={onCancel}>
+            <div className={styles.card} onClick={e => e.stopPropagation()}>
+                <h3>Game Over — Score: {score}</h3>
+                <p>Enter a nickname to save your score:</p>
+                <div className={styles.row}>
+                    <input
+                        className={styles.input}
+                        placeholder="Nickname"
+                        value={name}
+                        maxLength={24}
+                        onChange={e => setName(e.target.value)}
+                        onKeyDown={e => e.key === 'Enter' && submit()}
+                        autoFocus
+                    />
+                    <button className={styles.btn} onClick={submit}>Save</button>
+                    <button className={styles.btn} onClick={onCancel}>Skip</button>
+                </div>
             </div>
         </div>
-    </header>
-);
+    );
+};
 
-export default TopBar;
+export default NamePrompt;
