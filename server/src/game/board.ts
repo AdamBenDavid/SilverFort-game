@@ -108,14 +108,19 @@ export const decrementCooldowns = (grid: Board): Board => {
 };
 
 export const optionsForCell = (grid: Board, row: number, column: number) => {
+  const current = grid[row][column];
   const neighbor = neighbors(row, column).map(
     ([neighborRow, neighborColumn]) => grid[neighborRow][neighborColumn]!,
   );
   const usedShapes = new Set(neighbor.map((neighbor) => neighbor.shape));
   const usedColors = new Set(neighbor.map((neighbor) => neighbor.color));
 
-  const shapes = SHAPES.filter((shape) => !usedShapes.has(shape));
-  const colors = COLORS.filter((color) => !usedColors.has(color));
+  const shapes = SHAPES.filter(
+    (shapes) => shapes !== current.shape && !usedShapes.has(shapes), // You can only loose upon middle row so changed to validation on shapes & colors not or
+  );
+  const colors = COLORS.filter(
+    (colors) => colors !== current.color && !usedColors.has(colors),
+  );
   return { shapes, colors };
 };
 

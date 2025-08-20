@@ -23,8 +23,8 @@ export const onInit = (cb: (p: StatePayload) => void) => getSocket().on('init', 
 export const onUpdate = (cb: (p: StatePayload) => void) => getSocket().on('update', cb);
 export const onGameOver = (cb: (p: StatePayload) => void) => getSocket().on('gameOver', cb);
 
-export const emitClickCell = (row: number, col: number) =>
-    getSocket().emit('clickCell', {row, col});
+export const emitClickCell = (row: number, colum: number) =>
+    getSocket().emit('clickCell', {row, col: colum});
 
 export const emitReset = () => getSocket().emit('reset');
 
