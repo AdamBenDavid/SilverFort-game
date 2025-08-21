@@ -56,8 +56,8 @@ export const generateInitialBoard = (): Board => {
       let tries = MAX_TRIES;
       let chosen: { shape: Shape; color: Color } | null = null;
       while (tries--) {
-        const shape = randomOf(SHAPES) as Shape;
-        const color = randomOf(COLORS) as Color;
+        const shape = randomOf(SHAPES);
+        const color = randomOf(COLORS);
         if (isValid(row, column, shape, color, grid)) {
           chosen = { shape: shape, color: color };
           break;
@@ -81,8 +81,8 @@ export const applyValidRandomChange = (
 ): Board | null => {
   let tries = MAX_TRIES;
   while (tries--) {
-    const shape = randomOf(SHAPES) as Shape;
-    const color = randomOf(COLORS) as Color;
+    const shape = randomOf(SHAPES);
+    const color = randomOf(COLORS);
     if (isValid(row, column, shape, color, grid)) {
       const next = grid.map((row) => row.map((cell) => ({ ...cell })));
       next[row][column] = {
@@ -110,7 +110,7 @@ export const decrementCooldowns = (grid: Board): Board => {
 export const optionsForCell = (grid: Board, row: number, column: number) => {
   const current = grid[row][column];
   const neighbor = neighbors(row, column).map(
-    ([neighborRow, neighborColumn]) => grid[neighborRow][neighborColumn]!,
+    ([neighborRow, neighborColumn]) => grid[neighborRow][neighborColumn],
   );
   const usedShapes = new Set(neighbor.map((neighbor) => neighbor.shape));
   const usedColors = new Set(neighbor.map((neighbor) => neighbor.color));
@@ -134,8 +134,8 @@ export const applyFromOptions = (
 
   const next = decrementCooldowns(grid);
 
-  const shape = shapes[Math.floor(Math.random() * shapes.length)] as Shape;
-  const color = colors[Math.floor(Math.random() * colors.length)] as Color;
+  const shape = shapes[Math.floor(Math.random() * shapes.length)];
+  const color = colors[Math.floor(Math.random() * colors.length)];
 
   next[row][column] = {
     shape: shape,

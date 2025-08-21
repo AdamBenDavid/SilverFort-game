@@ -1,20 +1,14 @@
 import {
+  ConnectedSocket,
   MessageBody,
+  OnGatewayConnection,
   SubscribeMessage,
   WebSocketGateway,
   WebSocketServer,
-  OnGatewayConnection,
-  ConnectedSocket,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
 import { StateService } from './state.service';
-import {
-  anyValidForCell,
-  applyFromOptions,
-  applyValidRandomChange,
-  decrementCooldowns,
-  optionsForCell,
-} from './board';
+import { applyFromOptions, optionsForCell } from './board';
 import { Logger } from '@nestjs/common';
 import { LeaderboardService } from 'src/leaderboard/leaderboard.service';
 
@@ -69,20 +63,16 @@ export class GameGateway implements OnGatewayConnection {
     const score = this.state.getState().score;
     const meta = this.state.getMeta();
 
-    // accept only if same game and not yet submitted
     if (gameId !== meta.gameId || this.state.isSubmitted()) {
-      // politely reject this client (others already handled it)
       socket.emit('scoreRejected', { reason: 'already-submitted' });
       return;
     }
 
-    // persist and broadcast
     this.leaderboard.add(name || `Player-${socket.id.slice(0, 5)}`, score);
     const top10 = this.leaderboard.getTop();
 
     this.state.markSubmitted();
 
-    // notify ALL clients to close their prompt + show leaderboard
     this.server.emit('scoreSaved', {
       by: socket.id,
       name,
