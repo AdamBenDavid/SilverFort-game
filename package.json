@@ -6,8 +6,8 @@
   "scripts": {
     "build": "tsc"
   },
-  "dependencies": {},
   "devDependencies": {
+    "@nestjs/devtools-integration": "^0.2.1",
     "typescript": "^5.5.3"
   },
   "private": true

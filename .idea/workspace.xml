@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ebb139c-e905-4d74-9eda-1ada6431f2e3" name="Changes" comment="add leaderboard integration and game state enhancements">
+    <list default="true" id="0ebb139c-e905-4d74-9eda-1ada6431f2e3" name="Changes" comment="refactor game logic and integrate leaderboard submission">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,24 +34,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "AdamBenDavid"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AdamBenDavid&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/AdamBenDavid/SilverFort-game.git",
-    "accountId": "25c4d863-e3ef-40df-ad6c-644fd50ab631"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AdamBenDavid/SilverFort-game.git&quot;,
+    &quot;accountId&quot;: &quot;25c4d863-e3ef-40df-ad6c-644fd50ab631&quot;
   }
-}]]></component>
+}</component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="31Xs7Qh32dErvyGmz9sS2YPsIcE" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -76,7 +78,7 @@
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\adamb\\WebstormProjects\\silverFort-game\\server\\node_modules\\prettier",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "ts.external.directory.path": "C:\\Users\\adamb\\WebstormProjects\\silverFort-game\\server\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\adamb\\WebstormProjects\\silverFort-game\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -111,6 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1755681583884</updated>
       <workItem from="1755681585022" duration="26576000" />
+      <workItem from="1755762283581" duration="4794000" />
     </task>
     <task id="LOCAL-00001" summary="last fixes">
       <option name="closed" value="true" />
@@ -152,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755715734140</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor game logic and integrate leaderboard submission">
+      <option name="closed" value="true" />
+      <created>1755766580729</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1755766580729</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +191,8 @@
     <MESSAGE value="update naming conventions and refine board logic" />
     <MESSAGE value="remove unused LeaderboardEntry type" />
     <MESSAGE value="add leaderboard integration and game state enhancements" />
-    <option name="LAST_COMMIT_MESSAGE" value="add leaderboard integration and game state enhancements" />
+    <MESSAGE value="refactor game logic and integrate leaderboard submission" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor game logic and integrate leaderboard submission" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
